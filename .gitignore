@@ -1,0 +1,19 @@
+# folders
+.vs/
+build/
+External/
+Source/Old_main/
+
+# extensitons 
+*.exe
+*.lib
+*.dll
+*.idb
+*.so
+*.sdf
+*.opensdf
+*.user
+*.filters
+
+# execptions 
+!vendor/**/*
