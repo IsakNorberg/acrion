@@ -52,6 +52,6 @@ String String::toLower()
 		if (intArry[i] >= 65 && intArry[i] <= 90)
 			intArry[i] = intArry[i] + 32;
 	}
-	String returnString = static_cast<const char*>(intArry);
+	String returnString[] = static_cast<const char*>(intArry);
 	delete(intArry);
 }

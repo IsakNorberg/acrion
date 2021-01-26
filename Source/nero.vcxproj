@@ -105,10 +105,6 @@
     <ClCompile Include="src\String.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Game.h" />
-    <ClInclude Include="include\GameFunc.h" />
-    <ClInclude Include="include\MyGame.h" />
-    <ClInclude Include="include\String.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameFunc.h" />
     <ClInclude Include="src\MyGame.h" />

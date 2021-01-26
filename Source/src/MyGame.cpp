@@ -1,4 +1,5 @@
 #include "MyGame.h"
+
 void Player::setPlayerPosition(int x = 1, int y = 1)
 {
 	position_x = x;

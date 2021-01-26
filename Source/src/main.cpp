@@ -1,5 +1,8 @@
 #include "SFML/Graphics.hpp"
-
+#include "MyGame.h"
+#include "GameFunc.h"
+#include <iostream>
+#include "String.h"
 #include "Game.h"
 
 
