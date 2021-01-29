@@ -1,19 +1,22 @@
 #pragma once
-class String
+#include <string>
+class StringComand
 {
 
 public:	
-	String();
-	String(const char* inString);
+	StringComand();
+	StringComand(const char* inString);
 private:
-	int size; // size nog bra 
-	const char* string;
+	int size; 
+	
+	std::string text;
 public:
 	
-	~String(); 
+	~StringComand(); 
 		
-	bool operator== (String inString);
-	//const char* operator[] (int index);
-	String toLower();
+	bool operator == (StringComand inString);
+	void operator= (const char* comandIn);
+	
+	void toLower();
 	int getSize();
 };

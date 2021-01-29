@@ -19,8 +19,15 @@ int main(int argc, char** argv)
 	float frameTime = 1.0f / 60.0f;
 	bool running = true;
 
+	//test
+	Map myMap(1000); // något konstigt med the map sak
+	Player myPlayer(1, 1);
+	WorldCommands myCommands;
+
 	while (running)
 	{
+		std::cout << "You are in a " << myMap[myPlayer.getPlayerX() * myPlayer.getPlayerY()]<< "\n" << "wear do you want to go? \n";
+		std::cin >> myPlayer.move;
 		sf::Event event;
 		delta = clock.restart();
 		while (window.pollEvent(event))

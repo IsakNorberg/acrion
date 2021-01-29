@@ -1,6 +1,6 @@
 #pragma once
 #include"Game.h"
-#include<string>
+#include <string>
 int GenerateRandNum(int high, int low);
 
 void commandIn(std::string command);

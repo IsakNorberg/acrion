@@ -1,4 +1,13 @@
 #include "MyGame.h"
+#include "GameFunc.h"
+Player::Player(int x, int y)
+{
+	setPlayerPosition(x, y);
+}
+
+Player::Player()
+{
+}
 
 void Player::setPlayerPosition(int x = 1, int y = 1)
 {
@@ -14,8 +23,16 @@ int Player::getPlayerY()
 	return(position_y);
 }
 
-void MapTile::setMyTerrain(int inNumber)
+MapTile::MapTile()
 {
+	setMyTerrain();
+}
+
+
+
+void MapTile::setMyTerrain()
+{
+	int inNumber = GenerateRandNum(3, 1);
 	Terrain outTerrain;
 	if (inNumber == 1)
 		outTerrain = Terrain::Dessert;
@@ -53,4 +70,9 @@ void WorldCommands::MoveTile(Player* myPlayer)
 	else if (myPlayer->move == "w")
 		myPlayer->setPlayerPosition(myPlayer->getPlayerX() - 1, myPlayer->getPlayerY());
 	// do if i can walk their cheek
+}
+
+Map::Map(int size)
+{
+	mapSize = size;
 }

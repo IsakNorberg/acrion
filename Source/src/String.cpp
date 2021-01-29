@@ -1,57 +1,58 @@
 #include"String.h"
 
-String::String(const char* inString)
+StringComand::StringComand(const char* inString)
 {
-	size = 0; 
-	for (int i = 0; inString[i] != '\0'; i++)
-	{
-		size++;
-	}
-	string = inString;
+	size = text.size();
+	text = inString;
 	
 };
-String::~String()
+StringComand::~StringComand()
 {
-	delete(string);
+	
 }
-String::String()
+StringComand::StringComand()
 {
 	size = 1;
 }
 
-bool String::operator == (String inString)
+bool StringComand::operator == (StringComand inString)
 {
 	
 
-	if (sizeof(inString.string) != sizeof(string))
+	if (sizeof(inString.text) != sizeof(text))
 		return(false);
 
 	for (int i = 0; i < size; i++)
-		if (inString.string[i] != string[i])
+		if (inString.text[i] != text[i])
 			return(false);
 	return(true);
 	
-};
-//const char* String::operator[](int index)
-//{
-//	const char* returnPointer = &string[index];
-//	return(returnPointer);
-//}
-int String::getSize()
+}
+void StringComand::operator=(const char* comandIn)
+{
+	text = comandIn;
+}
+;
+
+int StringComand::getSize()
 {
 	return(size);
 }
-String String::toLower()
+void StringComand::toLower()
 {
 	
 	int* intArry = new int[size];
 	for (int i = 0; i < size; i++)
 	{
 		
-		intArry[i] = static_cast<int>(string[i]);
+		intArry[i] = static_cast<int>(text[i]);
 		if (intArry[i] >= 65 && intArry[i] <= 90)
+		{
 			intArry[i] = intArry[i] + 32;
+			text[i] = static_cast<char>(intArry[i]);
+		}
 	}
-	String returnString[] = static_cast<const char*>(intArry);
+	
 	delete(intArry);
+	
 }

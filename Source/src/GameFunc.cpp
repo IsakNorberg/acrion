@@ -1,10 +1,9 @@
 #include "GameFunc.h"
 #include "Game.h"   
-#include<iostream>
-#include <stdlib.h>     
+#include <iostream>
+   
 #include <time.h>   
-#include <algorithm>
-#include <cctype>
+
 
 
 
@@ -20,9 +19,8 @@ int GenerateRandNum(int high, int low)
 	loop = false;
 	return(number);
 }
-//void commandIn(std::string command)
-//{
-//
-//	std::transform(command.begin(), command.end(), command.begin(), std::tolower);
-//	std::cout << command;
-//}
+void commandIn(std::string command)
+{
+
+	
+}
