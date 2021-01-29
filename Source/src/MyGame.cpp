@@ -1,12 +1,15 @@
 #include "MyGame.h"
 #include "GameFunc.h"
+#include <iostream>
 Player::Player(int x, int y)
 {
 	setPlayerPosition(x, y);
+	myGameState = GameState::OverWorld;
 }
 
 Player::Player()
 {
+	myGameState = GameState::OverWorld;
 }
 
 void Player::setPlayerPosition(int x = 1, int y = 1)
@@ -21,6 +24,26 @@ int Player::getPlayerX()
 int Player::getPlayerY()
 {
 	return(position_y);
+}
+
+void Player::move()
+{
+	std::cin >> moveCommand;
+	if (moveCommand == "n")
+	    position_y++;
+	else if (moveCommand == "e")
+		position_x ++;
+	else if (moveCommand == "s")
+		position_y--;
+	else if (moveCommand == "w")
+		position_x--;
+	else
+		std::cout << "Not a command \n";
+}
+
+std::string Player::getCommand()
+{
+	return moveCommand;
 }
 
 MapTile::MapTile()
@@ -61,13 +84,13 @@ Terrain MapTile::getTerrainEnum()
 }
 void WorldCommands::MoveTile(Player* myPlayer)
 {
-	if (myPlayer->move == "n")
+	if (myPlayer->getCommand() == "n")
 		myPlayer->setPlayerPosition(myPlayer->getPlayerX(), myPlayer->getPlayerY() + 1);
-	else if (myPlayer->move == "e")
+	else if (myPlayer->getCommand() == "e")
 		myPlayer->setPlayerPosition(myPlayer->getPlayerX() + 1, myPlayer->getPlayerY());
-	else if (myPlayer->move == "s")
+	else if (myPlayer->getCommand() == "s")
 		myPlayer->setPlayerPosition(myPlayer->getPlayerX(), myPlayer->getPlayerY() - 1);
-	else if (myPlayer->move == "w")
+	else if (myPlayer->getCommand() == "w")
 		myPlayer->setPlayerPosition(myPlayer->getPlayerX() - 1, myPlayer->getPlayerY());
 	// do if i can walk their cheek
 }

@@ -2,9 +2,8 @@
 
 StringComand::StringComand(const char* inString)
 {
-	size = text.size();
 	text = inString;
-	
+	size = static_cast<int>(text.size());
 };
 StringComand::~StringComand()
 {
@@ -12,7 +11,7 @@ StringComand::~StringComand()
 }
 StringComand::StringComand()
 {
-	size = 1;
+	size = static_cast<int>(text.size());
 }
 
 bool StringComand::operator == (StringComand inString)
@@ -22,15 +21,25 @@ bool StringComand::operator == (StringComand inString)
 	if (sizeof(inString.text) != sizeof(text))
 		return(false);
 
-	for (int i = 0; i < size; i++)
-		if (inString.text[i] != text[i])
-			return(false);
-	return(true);
+	if (inString.text == text)
+		return(true);
+
+	return(false);
 	
 }
 void StringComand::operator=(const char* comandIn)
 {
 	text = comandIn;
+	size = static_cast<int>(text.size());
+}
+void StringComand::operator[](const char* commandIn)
+{
+	text = commandIn;
+	size = static_cast<int>(text.size());
+}
+char StringComand::operator[](int nummber)
+{
+	return text[nummber];
 }
 ;
 
@@ -44,7 +53,6 @@ void StringComand::toLower()
 	int* intArry = new int[size];
 	for (int i = 0; i < size; i++)
 	{
-		
 		intArry[i] = static_cast<int>(text[i]);
 		if (intArry[i] >= 65 && intArry[i] <= 90)
 		{
@@ -53,6 +61,10 @@ void StringComand::toLower()
 		}
 	}
 	
-	delete(intArry);
+	
+	
+	delete[] intArry;
+	
+	
 	
 }

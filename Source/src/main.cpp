@@ -22,12 +22,19 @@ int main(int argc, char** argv)
 	//test
 	Map myMap(1000); // något konstigt med the map sak
 	Player myPlayer(1, 1);
-	WorldCommands myCommands;
+	
 
 	while (running)
 	{
 		std::cout << "You are in a " << myMap[myPlayer.getPlayerX() * myPlayer.getPlayerY()]<< "\n" << "wear do you want to go? \n";
-		std::cin >> myPlayer.move;
+		myPlayer.move();
+		StringComand comand = "Hej";
+		StringComand comand2 = "Hej";
+		if (comand == comand2)
+		{
+			comand.toLower();
+			comand2.toLower();
+		}
 		sf::Event event;
 		delta = clock.restart();
 		while (window.pollEvent(event))

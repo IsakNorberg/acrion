@@ -2,20 +2,21 @@
 #include <string>
 class StringComand
 {
-
-public:	
 	StringComand();
+public:	
+	
 	StringComand(const char* inString);
 private:
 	int size; 
-	
 	std::string text;
 public:
 	
 	~StringComand(); 
 		
-	bool operator == (StringComand inString);
-	void operator= (const char* comandIn);
+	bool operator== (StringComand inString);
+	void operator= (const char* commandIn);
+	void operator[] (const char* commandIn);
+	char operator[] (int nummber);
 	
 	void toLower();
 	int getSize();

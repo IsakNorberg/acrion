@@ -28,24 +28,26 @@ class Map
 	int mapSize = 1000;// fixa med detta tror jag så att den fixs
 public:
 	Map(int size);
-	MapTile* myMap = new MapTile[mapSize];
+	MapTile* myMapTile = new MapTile[mapSize];
 
 	const char* operator[](int position)
 	{
-		return myMap[position].getTerraienTyp();
+		return myMapTile[position].getTerraienTyp();
 	}
 };
 class Player
 {
-	int position_y;
-	int position_x;
+	int position_y = 1;
+	int position_x = 1;
+	std::string moveCommand = "null";
 public:
 	Player(int x, int y);
 	Player();
 	void setPlayerPosition(int x, int y);
 	int getPlayerX();
 	int getPlayerY();
-	std::string move;
+	void move();
+	std::string getCommand();
 	GameState myGameState;
 };
 // Alla commands tas från functionen 
