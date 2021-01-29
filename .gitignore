@@ -3,7 +3,7 @@
 build/
 External/
 Source/Old_main/
-Source/include/
+Source/include/SFML/
 
 # extensitons 
 *.exe
