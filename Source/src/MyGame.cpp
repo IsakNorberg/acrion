@@ -1,6 +1,7 @@
 #include "MyGame.h"
 #include "GameFunc.h"
 #include <iostream>
+
 Player::Player(int x, int y)
 {
 	setPlayerPosition(x, y);
@@ -28,22 +29,17 @@ int Player::getPlayerY()
 
 void Player::move()
 {
-	std::cin >> moveCommand;
-	if (moveCommand == "n")
-	    position_y++;
-	else if (moveCommand == "e")
-		position_x ++;
-	else if (moveCommand == "s")
-		position_y--;
-	else if (moveCommand == "w")
-		position_x--;
-	else
-		std::cout << "Not a command \n";
+	
 }
 
-std::string Player::getCommand()
+StringComand Player::getCommand()
 {
-	return moveCommand;
+	return command;
+}
+
+void Player::setCommand(StringComand comand)
+{
+	comand.toLower();
 }
 
 MapTile::MapTile()
@@ -82,6 +78,19 @@ Terrain MapTile::getTerrainEnum()
 {
 	return(myTerrain);
 }
+WorldCommands::WorldCommands()
+{
+
+}
+void WorldCommands::commands(Player* myPlayer)
+{
+
+	switch (switch_on)
+	{
+	default:
+		break;
+	}
+}
 void WorldCommands::MoveTile(Player* myPlayer)
 {
 	if (myPlayer->getCommand() == "n")
@@ -95,7 +104,16 @@ void WorldCommands::MoveTile(Player* myPlayer)
 	// do if i can walk their cheek
 }
 
+Map::Map()
+{
+}
+
 Map::Map(int size)
 {
 	mapSize = size;
+}
+
+const char* Map::operator[](int position)
+{
+	return myMapTile[position].getTerraienTyp();
 }

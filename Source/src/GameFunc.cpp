@@ -1,7 +1,6 @@
-#include "GameFunc.h"
-#include "Game.h"   
+#include "GameFunc.h" 
 #include <iostream>
-   
+#include "String.h"
 #include <time.h>   
 
 
@@ -19,8 +18,11 @@ int GenerateRandNum(int high, int low)
 	loop = false;
 	return(number);
 }
-void commandIn(std::string command)
-{
 
-	
+void comandIn(Player &myPlyer, WorldCommands myComands)
+{
+	StringComand returnString;
+	std::cin >> returnString.text;
+	returnString.toLower();
+	myComands.commands(&myPlyer);
 }

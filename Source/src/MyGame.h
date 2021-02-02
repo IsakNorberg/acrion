@@ -1,5 +1,6 @@
 #pragma once
 #include<string>
+#include"String.h"
 enum class Terrain
 {
 	Null,
@@ -27,19 +28,17 @@ class Map
 {
 	int mapSize = 1000;// fixa med detta tror jag så att den fixs
 public:
+	Map();
 	Map(int size);
 	MapTile* myMapTile = new MapTile[mapSize];
-
-	const char* operator[](int position)
-	{
-		return myMapTile[position].getTerraienTyp();
-	}
+	const char* operator[](int position);
+	
 };
 class Player
 {
 	int position_y = 1;
 	int position_x = 1;
-	std::string moveCommand = "null";
+	StringComand command = "null";
 public:
 	Player(int x, int y);
 	Player();
@@ -47,13 +46,16 @@ public:
 	int getPlayerX();
 	int getPlayerY();
 	void move();
-	std::string getCommand();
+	StringComand getCommand();
+	void setCommand(StringComand comand);
 	GameState myGameState;
 };
 // Alla commands tas från functionen 
 
-class WorldCommands
+class WorldCommands : Map
 {
-
+public:
+	WorldCommands();
+	void commands(Player* myPlayer);
 	void MoveTile(Player* myPlayer);
 };

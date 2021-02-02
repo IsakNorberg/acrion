@@ -16,8 +16,6 @@ StringComand::StringComand()
 
 bool StringComand::operator == (StringComand inString)
 {
-	
-
 	if (sizeof(inString.text) != sizeof(text))
 		return(false);
 
@@ -25,7 +23,6 @@ bool StringComand::operator == (StringComand inString)
 		return(true);
 
 	return(false);
-	
 }
 void StringComand::operator=(const char* comandIn)
 {
@@ -49,7 +46,6 @@ int StringComand::getSize()
 }
 void StringComand::toLower()
 {
-	
 	int* intArry = new int[size];
 	for (int i = 0; i < size; i++)
 	{
@@ -60,11 +56,5 @@ void StringComand::toLower()
 			text[i] = static_cast<char>(intArry[i]);
 		}
 	}
-	
-	
-	
 	delete[] intArry;
-	
-	
-	
 }

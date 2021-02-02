@@ -2,17 +2,14 @@
 #include <string>
 class StringComand
 {
-	StringComand();
-public:	
-	
-	StringComand(const char* inString);
-private:
+
 	int size; 
-	std::string text;
 public:
-	
+	std::string text;
 	~StringComand(); 
-		
+	StringComand();
+	StringComand(const char* inString);
+
 	bool operator== (StringComand inString);
 	void operator= (const char* commandIn);
 	void operator[] (const char* commandIn);
