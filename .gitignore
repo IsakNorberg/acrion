@@ -7,8 +7,6 @@ Source/Old_main/
 
 # extensitons 
 *.exe
-*.lib
-*.dll
 *.idb
 *.so
 *.sdf
