@@ -27,9 +27,10 @@ int Player::getPlayerY()
 	return(position_y);
 }
 
-void Player::move()
+void Player::move(int x, int y)
 {
-	
+	position_x = position_x + x;
+	position_y = position_y + y;
 }
 
 StringComand Player::getCommand()
@@ -40,6 +41,11 @@ StringComand Player::getCommand()
 void Player::setCommand(StringComand comand)
 {
 	comand.toLower();
+}
+
+GameState Player::getGameState()
+{
+	return myGameState;
 }
 
 MapTile::MapTile()
@@ -82,14 +88,27 @@ WorldCommands::WorldCommands()
 {
 
 }
-void WorldCommands::commands(Player* myPlayer)
+void WorldCommands::commands(Player* myPlayer, StringComand Comand)
 {
-
-	//switch (switch_on)
-	//{
-	//default:
-	//	break;
-	//}
+	if (myPlayer->getGameState() == GameState::OverWorld)
+	{
+		if (Comand == "n" || Comand == "up")
+		{
+			myPlayer->move(0, 1);
+		}
+		else if (Comand == "s" || Comand == "down")
+		{
+			myPlayer->move(0, -1);
+		}
+		else if (Comand == "e" || Comand == "right")
+		{
+			myPlayer->move(1, 0);
+		}
+		else if (Comand == "w" || Comand == "left")
+		{
+			myPlayer->move(-1, 0);
+		}
+	}
 }
 void WorldCommands::MoveTile(Player* myPlayer)
 {

@@ -20,7 +20,7 @@ int main(int argc, char** argv)
 	bool running = true;
 
 	//test
-	Map myMap(1000); // något konstigt med the map sak
+	Map myMap(1000);
 	Player myPlayer(1, 1);
 	WorldCommands myCommands;
 

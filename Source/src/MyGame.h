@@ -16,6 +16,7 @@ enum class GameState
 };
 class MapTile
 {
+	// TODO: Fixa texure
 	Terrain myTerrain;
 public:
 	MapTile();
@@ -39,16 +40,18 @@ class Player
 	int position_y = 1;
 	int position_x = 1;
 	StringComand command = "null";
+	GameState myGameState;
 public:
 	Player(int x, int y);
 	Player();
 	void setPlayerPosition(int x, int y);
 	int getPlayerX();
 	int getPlayerY();
-	void move();
+	void move(int x, int y);
 	StringComand getCommand();
 	void setCommand(StringComand comand);
-	GameState myGameState;
+	GameState getGameState();
+	
 };
 // Alla commands tas från functionen 
 
@@ -56,6 +59,6 @@ class WorldCommands : Map
 {
 public:
 	WorldCommands();
-	void commands(Player* myPlayer);
+	void commands(Player* myPlayer, StringComand Comand);
 	void MoveTile(Player* myPlayer);
 };
