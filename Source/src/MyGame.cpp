@@ -85,11 +85,11 @@ WorldCommands::WorldCommands()
 void WorldCommands::commands(Player* myPlayer)
 {
 
-	switch (switch_on)
-	{
-	default:
-		break;
-	}
+	//switch (switch_on)
+	//{
+	//default:
+	//	break;
+	//}
 }
 void WorldCommands::MoveTile(Player* myPlayer)
 {
