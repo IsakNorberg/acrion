@@ -10,6 +10,8 @@ Player::Player(int x, int y)
 
 Player::Player()
 {
+	position_x = 1;
+	position_y = 1;
 	myGameState = GameState::OverWorld;
 }
 
@@ -50,7 +52,9 @@ GameState Player::getGameState()
 
 MapTile::MapTile()
 {
+	
 	setMyTerrain();
+	setSprite();
 }
 
 
@@ -68,6 +72,22 @@ void MapTile::setMyTerrain()
 	else
 		outTerrain = Terrain::Null;
 	myTerrain = outTerrain;
+
+}
+void MapTile::setSprite()
+{
+	if (myTerrain == Terrain::Dessert)
+	{
+		Sprite.setTexture(myresorses.dessertTexture);
+	}
+	else if (myTerrain == Terrain::Forest)
+	{
+		Sprite.setTexture(myresorses.forestTexture);
+	}
+	else if (myTerrain == Terrain::GrasLand)
+	{
+		Sprite.setTexture(myresorses.gras_landTexture);
+	}
 }
 const char* MapTile::getTerraienTyp()
 {
@@ -125,12 +145,10 @@ void WorldCommands::MoveTile(Player* myPlayer)
 
 Map::Map()
 {
+	mapSize = 1000;
 }
 
-Map::Map(int size)
-{
-	mapSize = size;
-}
+
 
 const char* Map::operator[](int position)
 {

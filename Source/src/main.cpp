@@ -1,7 +1,5 @@
 #include "SFML/Graphics.hpp"
-#include "MyGame.h"
-#include "GameFunc.h"
-#include <iostream>
+
 #include "String.h"
 #include "Game.h"
 
@@ -20,21 +18,12 @@ int main(int argc, char** argv)
 	bool running = true;
 
 	//test
-	Map myMap(1000);
-	Player myPlayer(1, 1);
-	WorldCommands myCommands;
+	
 
 	while (running)
 	{
-		std::cout << "You are in a " << myMap[myPlayer.getPlayerX() * myPlayer.getPlayerY()]<< "\n" << "wear do you want to go? \n";
-		comandIn(myPlayer, myCommands);
-		StringComand comand = "Hej";
-		StringComand comand2 = "Hej";
-		if (comand == comand2)
-		{
-			comand.toLower();
-			comand2.toLower();
-		}
+		
+		
 		sf::Event event;
 		delta = clock.restart();
 		while (window.pollEvent(event))

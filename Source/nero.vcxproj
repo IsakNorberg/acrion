@@ -98,18 +98,18 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Resores.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GameFunc.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MyGame.cpp" />
+    <ClCompile Include="src\Resores.cpp" />
     <ClCompile Include="src\String.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Resores.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GameFunc.h" />
     <ClInclude Include="src\MyGame.h" />
+    <ClInclude Include="src\Resores.h" />
     <ClInclude Include="src\String.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
