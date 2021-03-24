@@ -24,5 +24,5 @@ void comandIn(Player &myPlyer, WorldCommands myComands)
 	StringComand returnString;
 	std::cin >> returnString.text;
 	returnString.toLower();
-	myComands.commands(&myPlyer);
+	myComands.commands(&myPlyer, returnString);
 }

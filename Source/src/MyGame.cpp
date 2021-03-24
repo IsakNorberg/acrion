@@ -10,6 +10,8 @@ Player::Player(int x, int y)
 
 Player::Player()
 {
+	position_x = 1;
+	position_y = 1;
 	myGameState = GameState::OverWorld;
 }
 
@@ -27,9 +29,10 @@ int Player::getPlayerY()
 	return(position_y);
 }
 
-void Player::move()
+void Player::move(int x, int y)
 {
-	
+	position_x = position_x + x;
+	position_y = position_y + y;
 }
 
 StringComand Player::getCommand()
@@ -42,9 +45,16 @@ void Player::setCommand(StringComand comand)
 	comand.toLower();
 }
 
+GameState Player::getGameState()
+{
+	return myGameState;
+}
+
 MapTile::MapTile()
 {
+	
 	setMyTerrain();
+	setSprite();
 }
 
 
@@ -62,6 +72,22 @@ void MapTile::setMyTerrain()
 	else
 		outTerrain = Terrain::Null;
 	myTerrain = outTerrain;
+
+}
+void MapTile::setSprite()
+{
+	if (myTerrain == Terrain::Dessert)
+	{
+		Sprite.setTexture(myresorses.dessertTexture);
+	}
+	else if (myTerrain == Terrain::Forest)
+	{
+		Sprite.setTexture(myresorses.forestTexture);
+	}
+	else if (myTerrain == Terrain::GrasLand)
+	{
+		Sprite.setTexture(myresorses.gras_landTexture);
+	}
 }
 const char* MapTile::getTerraienTyp()
 {
@@ -82,14 +108,27 @@ WorldCommands::WorldCommands()
 {
 
 }
-void WorldCommands::commands(Player* myPlayer)
+void WorldCommands::commands(Player* myPlayer, StringComand Comand)
 {
-
-	/*switch (switch_on)
+	if (myPlayer->getGameState() == GameState::OverWorld)
 	{
-	default:
-		break;
-	}*/
+		if (Comand == "n" || Comand == "up")
+		{
+			myPlayer->move(0, 1);
+		}
+		else if (Comand == "s" || Comand == "down")
+		{
+			myPlayer->move(0, -1);
+		}
+		else if (Comand == "e" || Comand == "right")
+		{
+			myPlayer->move(1, 0);
+		}
+		else if (Comand == "w" || Comand == "left")
+		{
+			myPlayer->move(-1, 0);
+		}
+	}
 }
 void WorldCommands::MoveTile(Player* myPlayer)
 {
@@ -106,12 +145,10 @@ void WorldCommands::MoveTile(Player* myPlayer)
 
 Map::Map()
 {
+	mapSize = 1000;
 }
 
-Map::Map(int size)
-{
-	mapSize = size;
-}
+
 
 const char* Map::operator[](int position)
 {
