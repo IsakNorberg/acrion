@@ -55,6 +55,7 @@ MapTile::MapTile()
 	
 	setMyTerrain();
 	setSprite();
+	// set position 
 }
 
 
@@ -89,6 +90,7 @@ void MapTile::setSprite()
 		Sprite.setTexture(myresorses.gras_landTexture);
 	}
 }
+
 const char* MapTile::getTerraienTyp()
 {
 	if (myTerrain == Terrain::Dessert)
@@ -146,11 +148,31 @@ void WorldCommands::MoveTile(Player* myPlayer)
 Map::Map()
 {
 	mapSize = 1000;
+	setTilePos();
+}
+
+void Map::setTilePos()
+{
+	float x = 0;
+	float y = 0;
+	for (int i = 0; i < 1000; i++ )
+	{
+		
+		if( x > 120)
+		{
+			y++;
+			x = 0;
+		}
+		myMapTile[i].Sprite.setPosition({ myMapTile[i].Sprite.getGlobalBounds().width * x
+										, myMapTile[i].Sprite.getGlobalBounds().height * y });
+		x++;
+	}
 }
 
 
 
 const char* Map::operator[](int position)
 {
+	// ToDO : fixa så att den ger rätt typ med tanke med på det som visas på skärmen 
 	return myMapTile[position].getTerraienTyp();
 }

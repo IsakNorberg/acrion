@@ -27,6 +27,7 @@ public:
 	MapTile();
 	void setMyTerrain();
 	void setSprite();
+	
 	const char* getTerraienTyp();
 	Terrain getTerrainEnum();
 
@@ -36,6 +37,7 @@ class Map
 	int mapSize = 0;// fixa med detta tror jag så att den fixs
 public:
 	Map();
+	void setTilePos();
 	MapTile myMapTile[1000];
 	const char* operator[](int position);
 	
